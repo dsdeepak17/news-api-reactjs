@@ -56,8 +56,11 @@ const newsArticlesSlice = createSlice({
 			state.status = LOADING;
 		},
 		[GetNewsArticles.fulfilled]: (state, action) => {
-			state.newsArticles = action.payload.articles;
-			state.allNewsArticles = action.payload.articles;
+			const sortedArticles = action.payload.articles.sort((a, b) =>
+				a.publishedAt < b.publishedAt ? sort : -1 * sort,
+			);
+			state.newsArticles = sortedArticles;
+			state.allNewsArticles = sortedArticles;
 			state.status = SUCCESS;
 		},
 		[GetNewsArticles.rejected]: (state, action) => {
@@ -69,9 +72,12 @@ const newsArticlesSlice = createSlice({
 		},
 		[SearchNewsArticles.fulfilled]: (state, action) => {
 			if (state.allNewsArticles.length) {
+				const sortedArticles = action.payload.articles.sort((a, b) =>
+					a.publishedAt < b.publishedAt ? sort : -1 * sort,
+				);
 				state.status = SUCCESS;
-				state.newsArticles = action.payload.articles;
-				state.allNewsArticles = action.payload.articles;
+				state.newsArticles = sortedArticles;
+				state.allNewsArticles = sortedArticles;
 			} else state.status = LOADING;
 		},
 		[SearchNewsArticles.rejected]: (state, action) => {

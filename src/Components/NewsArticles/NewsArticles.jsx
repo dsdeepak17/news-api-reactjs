@@ -36,14 +36,14 @@ function NewsArticles() {
 	const currentPosts = newsArticles.slice(indexOfFirstPost, indexOfLastPost);
 
 	return (
-		<div className="App">
+		<div>
 			<Typography
 				variant="h2"
 				gutterBottom
 				style={{
 					padding: '5px 15px',
 					color: 'white',
-					background: 'grey',
+					background: '#c4302b',
 					margin: 3,
 				}}
 			>

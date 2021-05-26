@@ -11,14 +11,6 @@ const {
 	PAGE_SIZE,
 } = Constants;
 
-// const API_URL = `https://newsapi.org/v2`;
-// const headlinesEndPoint = 'top-headlines';
-// const everythingEndPoint = 'everything';
-// const country = 'in';
-// // const API_KEY = '0d98ec4eb3dd46649916a567ad338eaa';
-// const API_KEY = '703b0a1fe01e4cca9e5d953f0a7c8f02'; //edunotes
-// const pageSize = 100;
-
 export const GetNewsArticles = createAsyncThunk(
 	'newsArticles/getNewsArticles',
 	async () => {
