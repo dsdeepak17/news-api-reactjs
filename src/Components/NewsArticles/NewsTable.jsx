@@ -48,10 +48,11 @@ export default function NewsTable({ rows, toggleSort, sort }) {
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{rows.map((row) => (
+					{rows.map((row, index) => (
 						<TableRow
 							key={
-								+new Date(row.publishedAt) + row.title.slice(0, 20) + row.source
+								index
+								// +new Date(row.publishedAt) + row.title.slice(0, 20) + row.source
 							}
 						>
 							<TableCell style={{ width: '20%' }} align="center">
